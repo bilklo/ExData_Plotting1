@@ -1,4 +1,4 @@
-#Plots line chart
+#Plots 3 line charts
 plot3<- function()
 {
   #load the data
@@ -23,10 +23,18 @@ plot3<- function()
   
   #create the histogram
   #PNG image
-  png("plot2.png",width = 480, height = 480, bg="transparent")
-  plot(subsetOfData$Time, subsetOfData$Sub_metering_1, type='l',col="black")
-  lines(subsetOfData$Time, subsetOfData$Sub_metering_2, type='l',col="red")
-  lines(subsetOfData$Time, subsetOfData$Sub_metering_3, type='l',col="blue")
+  png("plot3.png",width = 480, height = 480, bg="transparent")
+  plot(subsetOfData$Time, subsetOfData$Sub_metering_1, type='l',col="black", 
+       xlab = "", ylab="Energy Sub metering")
+  lines(subsetOfData$Time, subsetOfData$Sub_metering_2, type='l',col="red", 
+        xlab = "", ylab="")
+  lines(subsetOfData$Time, subsetOfData$Sub_metering_3, type='l',col="blue",
+        xlab = "", ylab="")
+  
+  legend("topright",pch=NA, col=c("black","blue","red"), legend=c("Sub_metering_1",
+                                                      "Sub_metering_2",
+                                                      "Sub_metering_3"),
+         lwd=2, xpd = TRUE, bty ="n")
   
   #close
   dev.off()
