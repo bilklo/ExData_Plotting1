@@ -1,4 +1,4 @@
-#Plots the histogram
+#Plots line chart
 plot2<- function()
 {
   #load the data
